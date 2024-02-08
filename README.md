@@ -2,11 +2,21 @@
 
 <p align="center">
     <img alt="license" src="https://img.shields.io/github/license/edlaver/liquidjs-shopify-compat?style=flat-square" />
-    <img alt="release" src="https://img.shields.io/github/v/tag/edlaver/liquidjs-shopify-compat?label=release&style=flat-square" />
+    <img alt="version" src="https://img.shields.io/npm/v/liquidjs-shopify-compat" />
     <img alt="visits" src="https://hits.deltapapa.io/github/edlaver/liquidjs-shopify-compat.svg" />
 </p>
 
 This is an attempt to bring most of the Shopify specific Liquid filters and tags to the [LiquidJS](https://liquidjs.com/) library. This is a work in progress and not all filters and tags will be available yet.
+
+## Install
+
+```bash
+pnpm install liquidjs-shopify-compat
+
+npm install liquidjs-shopify-compat
+
+yarn add liquidjs-shopify-compat
+```
 
 ## Currently implemented:
 
@@ -20,7 +30,7 @@ This is an attempt to bring most of the Shopify specific Liquid filters and tags
 
 - [ ] Tags:
 
-## Getting started
+## Getting started (development)
 
 First, let's install all dependencies:
 
