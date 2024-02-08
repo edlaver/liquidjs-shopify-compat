@@ -1,0 +1,38 @@
+{
+  "name": "liquidjs-shopify-compat",
+  "description": "liquid.js plugin filters and tags to make it compatible with Shopify's implementation",
+  "keywords": [
+    "liquid",
+    "liquidjs",
+    "shopify"
+  ],
+  "private": false,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "typings": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:ui": "vitest --ui --coverage",
+    "test:coverage": "vitest run --coverage"
+  },
+  "dependencies": {
+    "liquidjs": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.3",
+    "@vitest/coverage-v8": "^1.0.1",
+    "@vitest/ui": "^1.0.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.0",
+    "vite-plugin-dts": "^3.6.4",
+    "vitest": "^1.0.1"
+  }
+}
