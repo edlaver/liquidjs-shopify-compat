@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+dependencies:
+  liquidjs:
+    specifier: 10.x
+    version: 10.10.0
+
 devDependencies:
   '@types/node':
     specifier: ^20.10.3
@@ -14,9 +19,6 @@ devDependencies:
   '@vitest/ui':
     specifier: ^1.0.1
     version: 1.0.1(vitest@1.0.1)
-  liquidjs:
-    specifier: ^10.9.2
-    version: 10.10.0
   typescript:
     specifier: ^5.2.2
     version: 5.3.2
@@ -771,7 +773,7 @@ packages:
   /commander@10.0.1:
     resolution: {integrity: sha512-y4Mg2tXshplEbSGzx7amzPwKKOCGuoSRP/CjEdwwk0FOGlUbq6lKuoyDZTNZkmxHdJtp54hdfY/JUrdL7Xfdug==}
     engines: {node: '>=14'}
-    dev: true
+    dev: false
 
   /commander@9.5.0:
     resolution: {integrity: sha512-KRs7WVDKg86PWiuAqhDrAQnTXZKraVcCc6vFdL14qrZ/DcWwuRo7VoiYXalXO7S5GKpqYiVEwCbgFDfxNHKJBQ==}
@@ -1109,7 +1111,7 @@ packages:
     hasBin: true
     dependencies:
       commander: 10.0.1
-    dev: true
+    dev: false
 
   /local-pkg@0.5.0:
     resolution: {integrity: sha512-ok6z3qlYyCDS4ZEU27HaU6x/xZa9Whf8jD4ptH5UZTQYZVYeb9bnZ3ojVhiJNLiXK1Hfc0GNbLXcmZ5plLDDBg==}
