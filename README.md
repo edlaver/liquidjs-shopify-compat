@@ -1,19 +1,24 @@
-# vite-vanilla-ts-template
+# liquidjs-shopify-compat
 
 <p align="center">
-    <img alt="license" src="https://img.shields.io/github/license/entwurfhaus/vite-vanilla-ts-module?style=flat-square" />
-    <img alt="release" src="https://img.shields.io/github/v/tag/entwurfhaus/vite-vanilla-ts-template?label=release&style=flat-square" />
-    <img alt="visits" src="https://hits.deltapapa.io/github/entwurfhaus/vite-vanilla-ts-template.svg" />
+    <img alt="license" src="https://img.shields.io/github/license/edlaver/liquidjs-shopify-compat?style=flat-square" />
+    <img alt="release" src="https://img.shields.io/github/v/tag/edlaver/liquidjs-shopify-compat?label=release&style=flat-square" />
+    <img alt="visits" src="https://hits.deltapapa.io/github/edlaver/liquidjs-shopify-compat.svg" />
 </p>
 
-This is a minimalist Vite `vanilla-ts` template, for developing `ts` supported modules for publishing onto `npm`.
+This is an attempt to bring most of the Shopify specific Liquid filters and tags to the [LiquidJS](https://liquidjs.com/) library. This is a work in progress and not all filters and tags will be available yet.
 
-> Check out the older version of this template, https://github.com/entwurfhaus/vite-vanilla-ts-module.
-> And always check the `package.json` dependencies - this template scaffolded from Vite 5.x, and compatible with Node 18.x & beyond
+## Currently implemented:
 
-```bash
-npx degit entwurfhaus/vite-vanilla-ts-template my-awesome-package
-```
+- [ ] Filters:
+
+  - [x] money:
+    - [x] `money`
+    - [x] `money_with_currency`
+    - [x] `money_without_currency`
+    - [x] `money_without_trailing_zeros`
+
+- [ ] Tags:
 
 ## Getting started
 
@@ -87,6 +92,8 @@ npm publish
 ```
 
 ## References
+
+Created from awesome Vite template: https://github.com/entwurfhaus/vite-vanilla-ts-template
 
 The list of online references & to credit the open-source community, for making mini projects like these possible, **helping developers save many minutes** working.
 
