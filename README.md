@@ -12,9 +12,13 @@ This is an attempt to bring most of the Shopify specific Liquid filters and tags
 
 ```bash
 pnpm install liquidjs-shopify-compat
+```
 
+```bash
 npm install liquidjs-shopify-compat
+```
 
+```bash
 yarn add liquidjs-shopify-compat
 ```
 
