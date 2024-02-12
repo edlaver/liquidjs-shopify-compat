@@ -167,7 +167,8 @@ export function moneyFiltersCompatPlugin(this: Liquid) {
 }
 
 // Utils:
-export const sanitizeNumber = (num: number): number => {
+export const sanitizeNumber = (num?: number): number => {
+  if (num == null) return 0;
   if (isNaN(num)) {
     throw new Error("Invalid number");
   }
