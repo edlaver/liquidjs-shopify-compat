@@ -39,6 +39,23 @@ export const money = (
 };
 
 /**
+ * Formats a given price based on the store's [**HTML without currency** setting](https://help.shopify.com/manual/payments/currency-formatting).
+ *
+ * @syntax: `number | money: currency?, locales?`
+ *
+ * @example
+ * ```liquid
+ * {{ product.price | money: "USD", "en-US" }} => "$10.00"
+ * ```
+ *
+ * @see https://shopify.dev/docs/api/liquid/filters/money
+ *
+ * @param {number} num
+ * @param {string} currency
+ * @param {string | string[]} locales
+ *
+ * @returns {string} string
+ */
  * Formats a given price based on the store's [**HTML with currency** setting](https://help.shopify.com/manual/payments/currency-formatting)..
  *
  * @syntax: `number | money_with_currency: currency?, locales?`
@@ -77,6 +94,23 @@ export const money_with_currency = (
 };
 
 /**
+ * Formats a given price based on the store's [**HTML with currency** setting](https://help.shopify.com/manual/payments/currency-formatting)..
+ *
+ * @syntax: `number | money_with_currency: currency?, locales?`
+ *
+ * @example
+ * ```liquid
+ * {{ product.price | money_with_currency: "USD", "en-US" }} => "$10.00 USD"
+ * ```
+ *
+ * @see https://shopify.dev/docs/api/liquid/filters/money_with_currency
+ *
+ * @param {number} num
+ * @param {string} currency
+ * @param {string | string[]} locales
+ *
+ * @returns {string} string
+ */
  * Formats a given price based on the store's [**HTML without currency** setting](https://help.shopify.com/manual/payments/currency-formatting), without the currency symbol.
  *
  * @syntax: `number | money_without_currency: currency?, locales?`
@@ -115,6 +149,26 @@ export const money_without_currency = (
   } catch (err) {
     return (num ?? 0).toString();
   }
+};
+
+/**
+ * Formats a given price based on the store's [**HTML without currency** setting](https://help.shopify.com/manual/payments/currency-formatting), without the currency symbol.
+ *
+ * @syntax: `number | money_without_currency: currency?, locales?`
+ *
+ * @example
+ * ```liquid
+ * {{ product.price | money_without_currency: "USD", "en-US" }} => "10.00"
+ * ```
+ *
+ * @see https://shopify.dev/docs/api/liquid/filters/money_without_currency
+ *
+ * @param {number} num
+ * @param {string} currency
+ * @param {string | string[]} locales
+ *
+ * @returns {string} string
+ */
 };
 
 /**
