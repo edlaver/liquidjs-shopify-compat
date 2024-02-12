@@ -115,13 +115,13 @@ describe("money", () => {
     expect(money(num, "JPY", "ja-JP")).toBe("￥123,457");
   });
 
-  it("should handle undefined input", () => {
+  it("should handle undefined input", () => {const num = 123456.789;const context = { num: num };
     expect(money(undefined)).toBe("$0.00");
     expect(money(undefined, "USD")).toBe("$0.00");
     expect(money(undefined, "USD", "en-US")).toBe("$0.00");
   });
 
-  it("should handle null input", () => {
+  it("should handle null input", () => {const num = 123456.789;const context = { num: num };
     expect(money(null)).toBe("$0.00");
     expect(money(null, "USD")).toBe("$0.00");
     expect(money(null, "USD", "en-US")).toBe("$0.00");
