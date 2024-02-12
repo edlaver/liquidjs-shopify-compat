@@ -115,8 +115,20 @@ describe("money", () => {
     expect(money(num, "JPY", "ja-JP")).toBe("￥123,457");
   });
 
+  it("should handle undefined input", () => {
+    expect(money(undefined)).toBe("$0.00");
+    expect(money(undefined, "USD")).toBe("$0.00");
+    expect(money(undefined, "USD", "en-US")).toBe("$0.00");
+  });
+
+  it("should handle null input", () => {
+    expect(money(null)).toBe("$0.00");
+    expect(money(null, "USD")).toBe("$0.00");
+    expect(money(null, "USD", "en-US")).toBe("$0.00");
+  });
+
   it("should handle invalid inputs gracefully", () => {
-    expect(money(NaN)).toBe("NaN");
+    expect(money(NaN)).toBe("$0.00");
     expect(money(num, "XYZ")).toBe("XYZ 123,456.79");
   });
 });
@@ -141,8 +153,20 @@ describe("money_with_currency", () => {
     expect(money_with_currency(num, "JPY", "ja-JP")).toBe("￥123,457 JPY");
   });
 
+  it("should handle undefined input", () => {
+    expect(money_with_currency(undefined)).toBe("$0.00 USD");
+    expect(money_with_currency(undefined, "USD")).toBe("$0.00 USD");
+    expect(money_with_currency(undefined, "USD", "en-US")).toBe("$0.00 USD");
+  });
+
+  it("should handle null input", () => {
+    expect(money_with_currency(null)).toBe("$0.00 USD");
+    expect(money_with_currency(null, "USD")).toBe("$0.00 USD");
+    expect(money_with_currency(null, "USD", "en-US")).toBe("$0.00 USD");
+  });
+
   it("should handle invalid inputs gracefully", () => {
-    expect(money_with_currency(NaN)).toBe("NaN");
+    expect(money_with_currency(NaN)).toBe("$0.00 USD");
     expect(money_with_currency(num, "XYZ")).toBe("XYZ 123,456.79 XYZ");
   });
 });
@@ -167,8 +191,20 @@ describe("money_without_currency", () => {
     expect(money_without_currency(num, "JPY", "ja-JP")).toBe("123,457");
   });
 
+  it("should handle undefined input", () => {
+    expect(money_without_currency(undefined)).toBe("0.00");
+    expect(money_without_currency(undefined, "USD")).toBe("0.00");
+    expect(money_without_currency(undefined, "USD", "en-US")).toBe("0.00");
+  });
+
+  it("should handle null input", () => {
+    expect(money_without_currency(null)).toBe("0.00");
+    expect(money_without_currency(null, "USD")).toBe("0.00");
+    expect(money_without_currency(null, "USD", "en-US")).toBe("0.00");
+  });
+
   it("should handle invalid inputs gracefully", () => {
-    expect(money_without_currency(NaN)).toBe("NaN");
+    expect(money_without_currency(NaN)).toBe("0.00");
     expect(money_without_currency(num, "XYZ")).toBe("123,456.79");
   });
 });
@@ -194,8 +230,20 @@ describe("money_without_trailing_zeros", () => {
     expect(money_without_trailing_zeros(num, "JPY", "ja-JP")).toBe("￥123,457");
   });
 
+  it("should handle undefined input", () => {
+    expect(money_without_trailing_zeros(undefined)).toBe("$0");
+    expect(money_without_trailing_zeros(undefined, "USD")).toBe("$0");
+    expect(money_without_trailing_zeros(undefined, "USD", "en-US")).toBe("$0");
+  });
+
+  it("should handle null input", () => {
+    expect(money_without_trailing_zeros(null)).toBe("$0");
+    expect(money_without_trailing_zeros(null, "USD")).toBe("$0");
+    expect(money_without_trailing_zeros(null, "USD", "en-US")).toBe("$0");
+  });
+
   it("should handle invalid inputs gracefully", () => {
-    expect(money_without_trailing_zeros(NaN)).toBe("NaN");
+    expect(money_without_trailing_zeros(NaN)).toBe("$0");
     expect(money_without_trailing_zeros(num, "XYZ")).toBe("XYZ 123,457");
   });
 });

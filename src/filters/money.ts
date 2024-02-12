@@ -19,12 +19,12 @@ import { Liquid } from "liquidjs";
  * @returns {string} string
  */
 export const money = (
-  num: number,
+  num: number | null | undefined = 0,
   currency: string = "USD",
   locales: string | string[] = "en-US"
 ): string => {
   try {
-    sanitizeNumber(num);
+    num = sanitizeNumber(num);
 
     const formatted = new Intl.NumberFormat(locales, {
       style: "currency",
@@ -34,7 +34,7 @@ export const money = (
 
     return `${formatted}`;
   } catch (err) {
-    return num.toString();
+    return (num ?? 0).toString();
   }
 };
 
@@ -57,12 +57,12 @@ export const money = (
  * @returns {string} string
  */
 export const money_with_currency = (
-  num: number,
+  num: number | null | undefined = 0,
   currency: string = "USD",
   locales: string | string[] = "en-US"
 ): string => {
   try {
-    sanitizeNumber(num);
+    num = sanitizeNumber(num);
 
     const formatted = new Intl.NumberFormat(locales, {
       style: "currency",
@@ -72,7 +72,7 @@ export const money_with_currency = (
 
     return `${formatted} ${currency}`;
   } catch (err) {
-    return num.toString();
+    return (num ?? 0).toString();
   }
 };
 
@@ -95,12 +95,12 @@ export const money_with_currency = (
  * @returns {string} string
  */
 export const money_without_currency = (
-  num: number,
+  num: number | null | undefined = 0,
   currency: string = "USD",
   locales: string | string[] = "en-US"
 ): string => {
   try {
-    sanitizeNumber(num);
+    num = sanitizeNumber(num);
 
     const formatted = new Intl.NumberFormat(locales, {
       style: "currency",
@@ -113,7 +113,7 @@ export const money_without_currency = (
 
     return `${formatted}`;
   } catch (err) {
-    return num.toString();
+    return (num ?? 0).toString();
   }
 };
 
@@ -136,12 +136,12 @@ export const money_without_currency = (
  * @returns {string} string
  */
 export const money_without_trailing_zeros = (
-  num: number,
+  num: number | null | undefined = 0,
   currency: string = "USD",
   locales: string | string[] = "en-US"
 ): string => {
   try {
-    sanitizeNumber(num);
+    num = sanitizeNumber(num);
 
     const formatted = new Intl.NumberFormat(locales, {
       style: "currency",
@@ -152,7 +152,7 @@ export const money_without_trailing_zeros = (
 
     return `${formatted}`;
   } catch (err) {
-    return num.toString();
+    return (num ?? 0).toString();
   }
 };
 
@@ -167,7 +167,8 @@ export function moneyFiltersCompatPlugin(this: Liquid) {
 }
 
 // Utils:
-export const sanitizeNumber = (num: number): number => {
+export const sanitizeNumber = (num?: number | null | undefined): number => {
+  if (!num) return 0;
   if (isNaN(num)) {
     throw new Error("Invalid number");
   }
