@@ -215,7 +215,19 @@ describe("money_without_trailing_zeros", () => {
     expect(money_without_trailing_zeros(num)).toBe("$123,457");
     expect(money_without_trailing_zeros(num, "USD")).toBe("$123,457");
     expect(money_without_trailing_zeros(num, "USD", "en-US")).toBe("$123,457");
+  it("should handle undefined input", () => {
+    expect(money_without_trailing_zeros(undefined)).toBe("$0");
+    expect(money_without_trailing_zeros(undefined, "USD")).toBe("$0");
+    expect(money_without_trailing_zeros(undefined, "USD", "en-US")).toBe("$0");
   });
+
+  it("should handle null input", () => {
+    expect(money_without_trailing_zeros(null)).toBe("$0");
+    expect(money_without_trailing_zeros(null, "USD")).toBe("$0");
+    expect(money_without_trailing_zeros(null, "USD", "en-US")).toBe("$0");
+  });
+
+});
 
   it("should format the number as currency when passed a currency setting", () => {
     expect(money_without_trailing_zeros(num, "EUR")).toBe("€123,457");
