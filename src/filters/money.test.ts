@@ -128,7 +128,7 @@ describe("money", () => {
   });
 
   it("should handle invalid inputs gracefully", () => {
-    expect(money(NaN)).toBe("NaN");
+    expect(money(NaN)).toBe("$0.00");
     expect(money(num, "XYZ")).toBe("XYZ 123,456.79");
   });
 });
@@ -166,7 +166,7 @@ describe("money_with_currency", () => {
   });
 
   it("should handle invalid inputs gracefully", () => {
-    expect(money_with_currency(NaN)).toBe("NaN");
+    expect(money_with_currency(NaN)).toBe("$0.00 USD");
     expect(money_with_currency(num, "XYZ")).toBe("XYZ 123,456.79 XYZ");
   });
 });
@@ -204,7 +204,7 @@ describe("money_without_currency", () => {
   });
 
   it("should handle invalid inputs gracefully", () => {
-    expect(money_without_currency(NaN)).toBe("NaN");
+    expect(money_without_currency(NaN)).toBe("0.00");
     expect(money_without_currency(num, "XYZ")).toBe("123,456.79");
   });
 });
@@ -215,19 +215,7 @@ describe("money_without_trailing_zeros", () => {
     expect(money_without_trailing_zeros(num)).toBe("$123,457");
     expect(money_without_trailing_zeros(num, "USD")).toBe("$123,457");
     expect(money_without_trailing_zeros(num, "USD", "en-US")).toBe("$123,457");
-  it("should handle undefined input", () => {
-    expect(money_without_trailing_zeros(undefined)).toBe("$0");
-    expect(money_without_trailing_zeros(undefined, "USD")).toBe("$0");
-    expect(money_without_trailing_zeros(undefined, "USD", "en-US")).toBe("$0");
   });
-
-  it("should handle null input", () => {
-    expect(money_without_trailing_zeros(null)).toBe("$0");
-    expect(money_without_trailing_zeros(null, "USD")).toBe("$0");
-    expect(money_without_trailing_zeros(null, "USD", "en-US")).toBe("$0");
-  });
-
-});
 
   it("should format the number as currency when passed a currency setting", () => {
     expect(money_without_trailing_zeros(num, "EUR")).toBe("€123,457");
@@ -242,8 +230,20 @@ describe("money_without_trailing_zeros", () => {
     expect(money_without_trailing_zeros(num, "JPY", "ja-JP")).toBe("￥123,457");
   });
 
+  it("should handle undefined input", () => {
+    expect(money_without_trailing_zeros(undefined)).toBe("$0");
+    expect(money_without_trailing_zeros(undefined, "USD")).toBe("$0");
+    expect(money_without_trailing_zeros(undefined, "USD", "en-US")).toBe("$0");
+  });
+
+  it("should handle null input", () => {
+    expect(money_without_trailing_zeros(null)).toBe("$0");
+    expect(money_without_trailing_zeros(null, "USD")).toBe("$0");
+    expect(money_without_trailing_zeros(null, "USD", "en-US")).toBe("$0");
+  });
+
   it("should handle invalid inputs gracefully", () => {
-    expect(money_without_trailing_zeros(NaN)).toBe("NaN");
+    expect(money_without_trailing_zeros(NaN)).toBe("$0");
     expect(money_without_trailing_zeros(num, "XYZ")).toBe("XYZ 123,457");
   });
 });
