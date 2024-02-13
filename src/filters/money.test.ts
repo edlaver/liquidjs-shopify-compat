@@ -8,10 +8,41 @@ import {
   money_without_currency,
   money_without_trailing_zeros,
   moneyFiltersCompatPlugin,
+  sanitizeNumber,
 } from "./money";
 
 const num = 123456.789;
 const context = { num: num }; // Num num num num num!
+
+describe("sanitizeNumber", () => {
+  it("should return 0 for undefined input", () => {
+    expect(sanitizeNumber(undefined)).toBe(0);
+  });
+
+  it("should return 0 for null input", () => {
+    expect(sanitizeNumber(null)).toBe(0);
+  });
+
+  it("should return 0 for NaN input", () => {
+    expect(sanitizeNumber(NaN)).toBe(0);
+  });
+
+  it("should return 0 for non-numeric input", () => {
+    expect(sanitizeNumber("abc")).toBe(0);
+  });
+
+  it("should return 0 or 1 for boolean input", () => {
+    expect(sanitizeNumber(false)).toBe(0);
+    expect(sanitizeNumber(true)).toBe(1);
+  });
+
+  it("should return the number for numeric input", () => {
+    expect(sanitizeNumber(123)).toBe(123);
+    expect(sanitizeNumber(0)).toBe(0);
+    expect(sanitizeNumber(-123)).toBe(-123);
+    expect(sanitizeNumber(123.456)).toBe(123.456);
+  });
+});
 
 describe("moneyFiltersCompatPlugin", () => {
   const engine = new Liquid();
