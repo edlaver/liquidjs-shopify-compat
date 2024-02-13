@@ -167,13 +167,15 @@ export function moneyFiltersCompatPlugin(this: Liquid) {
 }
 
 // Utils:
-export const sanitizeNumber = (num?: number | null | undefined): number => {
-  if (!num) return 0;
+export const sanitizeNumber = (
+  num?: number | string | boolean | null | undefined
+): number => {
+  num = Number(num);
   if (isNaN(num)) {
-    throw new Error("Invalid number");
+    return 0;
   }
   if (!isFinite(num)) {
-    throw new Error("Invalid number");
+    return 0;
   }
   return num;
 };
