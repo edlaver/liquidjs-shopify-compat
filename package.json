@@ -17,7 +17,7 @@
   "author": "Ed Laver (https://github.com/edlaver)",
   "license": "MIT",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
